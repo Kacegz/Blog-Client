@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useEffect, useState } from "react";
+import { styled } from "styled-components";
+import { Navigate, useOutletContext } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState();
+  function logout() {
+    localStorage.removeItem("accessToken");
+    Navigate("/");
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <Main>
+        <Navbar>
+          <Link to="/">Blog</Link>
 
-export default App
+          <AccountLinks>
+            {localStorage.getItem("accessToken") ? (
+              <Link onClick={logout}>Logout</Link>
+            ) : (
+              <>
+                <Link to="/register">Register</Link>
+                <Link to="/login">Login</Link>
+              </>
+            )}
+          </AccountLinks>
+        </Navbar>
+        <Outlet context={[user, setUser]} />
+      </Main>
+    </>
+  );
+}
+const Main = styled.section`
+  background: #fffbe9;
+  color: #181818;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+const Navbar = styled.section`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 10vh;
+  width: 60%;
+  border-bottom: 1px solid #ad8b73;
+  a {
+    color: #ad8b73;
+    font-size: 2.5rem;
+  }
+  margin-bottom: 10px;
+`;
+const AccountLinks = styled.section`
+  display: flex;
+  gap: 20px;
+  a {
+    font-size: 1.5rem;
+  }
+`;
+
+export default App;
