@@ -30,8 +30,6 @@ export default function Post() {
   async function sendComment(e) {
     e.preventDefault();
     try {
-      console.log(user);
-      console.log(newComment);
       const sendComment = await fetch(
         `http://localhost:3000/posts/${postId.id}/comments`,
         {
@@ -43,9 +41,7 @@ export default function Post() {
           },
         }
       );
-      const data = await sendComment.json();
-      console.log(postId.id);
-      navigate("/" + postId.id); /////fix this
+      navigate(0);
     } catch (err) {
       return console.error(err);
     }
@@ -82,25 +78,27 @@ export default function Post() {
               </li>
             );
           })}
-          <AddComentSection>
-            {user ? (
-              <>
-                <form method="post" onSubmit={sendComment}>
+          {user ? (
+            <>
+              <form method="post" onSubmit={sendComment}>
+                <AddComentSection>
                   <input
                     type="text"
                     name="text"
                     id="text"
                     onChange={(e) => setNewComment({ text: e.target.value })}
                   />
-                  <button type="submit">Send</button>
-                </form>
-              </>
-            ) : (
+                  <input type="submit" value="Send" />
+                </AddComentSection>
+              </form>
+            </>
+          ) : (
+            <AddComentSection>
               <p>
                 You must be <Link to="/login">logged in</Link> to add a comment
               </p>
-            )}
-          </AddComentSection>
+            </AddComentSection>
+          )}
         </>
       )}
     </>
@@ -117,6 +115,9 @@ const PostSection = styled.section`
   border: 1px solid #e3caa5;
   border-radius: 20px;
   gap: 5px;
+  &:hover {
+    background: #f2e9d3;
+  }
 `;
 const PostTitle = styled.h1`
   font-size: 1.6rem;
@@ -154,6 +155,9 @@ const CommentSection = styled.section`
   border: 1px solid #e3caa5;
   border-radius: 20px;
   gap: 5px;
+  &:hover {
+    background: #f2e9d3;
+  }
 `;
 const CommentText = styled.p`
   word-wrap: break-word;
@@ -166,8 +170,23 @@ const AddComentSection = styled.section`
   align-items: center;
   padding: 20px;
   margin: 10px;
-  width: 24vw;
-  height: 10vh;
+  height: 80px;
   border: 1px solid #e3caa5;
   border-radius: 20px;
+  gap: 10px;
+
+  input {
+    height: 36px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+    background: #e3caa5;
+    border: 1px solid white;
+    outline: none;
+  }
+  input:focus,
+  input:hover {
+    background: #d1ba98;
+    cursor: pointer;
+  }
 `;
