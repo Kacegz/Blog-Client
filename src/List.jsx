@@ -56,6 +56,9 @@ const PostSection = styled.section`
   border: 1px solid #e3caa5;
   border-radius: 20px;
   gap: 5px;
+  &:hover {
+    background: #f2e9d3;
+  }
 `;
 const PostTitle = styled.h1`
   font-size: 1.5rem;
@@ -88,8 +91,9 @@ const PostButton = styled.button`
   padding: 10px;
   font-family: Cormorant, serif;
   cursor: pointer;
+  background: #e3caa5;
   &:hover {
-    background: #e6dfba;
+    background: #d1ba98;
   }
 `;
 export default List;
