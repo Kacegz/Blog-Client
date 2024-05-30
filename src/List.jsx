@@ -76,7 +76,7 @@ const PostText = styled.p`
   margin: 10px;
   word-wrap: break-word;
   width: 20vw;
-  min-height: 60px;
+  min-height: 100px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;

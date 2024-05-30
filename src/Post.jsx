@@ -36,7 +36,7 @@ export default function Post() {
           method: "POST",
           body: JSON.stringify(newComment),
           headers: {
-            Authorization: `Bearer ${user.token} ]`,
+            Authorization: `Bearer ${user.token}`,
             "Content-type": "application/json",
           },
         }
