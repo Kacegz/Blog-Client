@@ -6,7 +6,9 @@ function List() {
   const [loading, setLoading] = useState(true);
   async function fetchData() {
     try {
-      const response = await fetch("http://localhost:3000/posts/");
+      const response = await fetch(
+        "https://blogapi-production-2510.up.railway.app/posts/"
+      );
       if (!response.ok) {
         throw new Error("Connection error");
       }

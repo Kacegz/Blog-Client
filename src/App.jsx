@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { styled } from "styled-components";
 import { Navigate, useOutletContext } from "react-router-dom";
 import { Link, Outlet } from "react-router-dom";

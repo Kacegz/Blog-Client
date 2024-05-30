@@ -7,11 +7,14 @@ export default function Register() {
   const [error, setError] = useState();
   const submit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/register/", {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://blogapi-production-2510.up.railway.app/register/",
+      {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
     const data = await response.json();
     if (!response.ok) {

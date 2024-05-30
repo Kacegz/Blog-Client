@@ -12,8 +12,12 @@ export default function Post() {
   async function fetchPost() {
     try {
       const [postResponse, commentResponse] = await Promise.all([
-        fetch(`http://localhost:3000/posts/${postId.id}`),
-        fetch(`http://localhost:3000/posts/${postId.id}/comments`),
+        fetch(
+          `https://blogapi-production-2510.up.railway.app/posts/${postId.id}`
+        ),
+        fetch(
+          `https://blogapi-production-2510.up.railway.app/posts/${postId.id}/comments`
+        ),
       ]);
       if (!postResponse.ok || !commentResponse.ok) {
         throw new Error("Connection error");
@@ -31,7 +35,7 @@ export default function Post() {
     e.preventDefault();
     try {
       const sendComment = await fetch(
-        `http://localhost:3000/posts/${postId.id}/comments`,
+        `https://blogapi-production-2510.up.railway.app/posts/${postId.id}/comments`,
         {
           method: "POST",
           body: JSON.stringify(newComment),
