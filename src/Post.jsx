@@ -114,13 +114,22 @@ const PostSection = styled.section`
   align-items: center;
   padding: 20px;
   margin: 20px;
-  width: 50%;
+  width: 40%;
   height: 60vh;
   border: 1px solid #e3caa5;
   border-radius: 20px;
   gap: 5px;
   &:hover {
     background: #f2e9d3;
+  }
+  @media only screen and (max-width: 600px) {
+    & {
+      width: 60%;
+    }
+    & input {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 `;
 const PostTitle = styled.h1`
@@ -133,13 +142,9 @@ const PostDetails = styled.p`
   font-size: 1.1rem;
 `;
 const PostText = styled.p`
-  text-align: justify;
-  text-justify: inter-word;
   font-size: 1rem;
   margin: 10px;
   word-wrap: break-word;
-  width: 80%;
-  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   line-clamp: 4;
@@ -152,9 +157,8 @@ const CommentSection = styled.section`
   justify-content: center;
   padding: 20px;
   margin: 10px;
-  padding-left: 80px;
-  padding-right: 80px;
-  height: 10vh;
+  padding-left: 40px;
+  padding-right: 40px;
   border: 1px solid #e3caa5;
   border-radius: 20px;
   gap: 5px;
@@ -175,6 +179,8 @@ const AddComentSection = styled.section`
   border: 1px solid #e3caa5;
   border-radius: 20px;
   gap: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   input {
     height: 36px;
@@ -196,10 +202,13 @@ const AddComentSection = styled.section`
     & {
       gap: 0;
       padding: 0;
+      margin: 10px;
     }
     & input {
       padding-left: 10px;
       padding-right: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
     }
   }
 `;

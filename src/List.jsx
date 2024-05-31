@@ -53,7 +53,6 @@ function List() {
 }
 const PostList = styled.section`
   display: grid;
-  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   @media only screen and (max-width: 600px) {
     & {
