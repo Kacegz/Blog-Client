@@ -171,8 +171,6 @@ const AddComentSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  margin: 10px;
   height: 80px;
   border: 1px solid #e3caa5;
   border-radius: 20px;
@@ -193,5 +191,15 @@ const AddComentSection = styled.section`
   input:hover {
     background: #d1ba98;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 600px) {
+    & {
+      gap: 0;
+      padding: 0;
+    }
+    & input {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 `;
