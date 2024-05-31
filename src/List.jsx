@@ -25,29 +25,41 @@ function List() {
 
   return (
     <>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        posts.map((post) => {
-          return (
-            <li key={post._id}>
-              <PostSection>
-                <PostTitle>{post.title}</PostTitle>
-                <PostDetails>
-                  {post.formattedDate} @ {post.author.username}
-                </PostDetails>
-                <PostText>{post.text}</PostText>
-                <Link to={post._id}>
-                  <PostButton>Read more</PostButton>
-                </Link>
-              </PostSection>
-            </li>
-          );
-        })
-      )}
+      <PostList>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          posts.map((post) => {
+            return (
+              <li key={post._id}>
+                <PostSection>
+                  <PostTitle>{post.title}</PostTitle>
+                  <PostDetails>
+                    {post.formattedDate} @ {post.author.username}
+                  </PostDetails>
+                  <PostText>{post.text}</PostText>
+                  <Link to={post._id}>
+                    <PostButton>Read more</PostButton>
+                  </Link>
+                </PostSection>
+              </li>
+            );
+          })
+        )}
+      </PostList>
     </>
   );
 }
+const PostList = styled.section`
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  @media only screen and (max-width: 600px) {
+    & {
+      grid-template-columns: 1fr;
+    }
+  }
+`;
 const PostSection = styled.section`
   display: flex;
   flex-direction: column;

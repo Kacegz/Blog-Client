@@ -114,7 +114,7 @@ const PostSection = styled.section`
   align-items: center;
   padding: 20px;
   margin: 20px;
-  max-width: 920px;
+  width: 50%;
   height: 60vh;
   border: 1px solid #e3caa5;
   border-radius: 20px;
@@ -138,23 +138,22 @@ const PostText = styled.p`
   font-size: 1rem;
   margin: 10px;
   word-wrap: break-word;
-  width: 25vw;
+  width: 80%;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   line-clamp: 4;
   -webkit-box-orient: vertical;
-  @media only screen and (max-width: 768px) {
-    width: 60vw;
-  }
 `;
 const CommentSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 20px;
   margin: 10px;
-  width: 24vw;
+  padding-left: 80px;
+  padding-right: 80px;
   height: 10vh;
   border: 1px solid #e3caa5;
   border-radius: 20px;
@@ -181,8 +180,10 @@ const AddComentSection = styled.section`
 
   input {
     height: 36px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     border-radius: 10px;
     background: #e3caa5;
     border: 1px solid white;

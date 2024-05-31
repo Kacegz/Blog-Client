@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { styled } from "styled-components";
-import { Navigate, useOutletContext } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Link, Outlet } from "react-router-dom";
 function App() {
   const [user, setUser] = useState();
@@ -52,6 +52,10 @@ const Navbar = styled.section`
     font-size: 2.5rem;
   }
   margin-bottom: 10px;
+  @media only screen and (max-width: 600px) {
+    & {
+      width:80%;
+    }
 `;
 const AccountLinks = styled.section`
   display: flex;
