@@ -13,7 +13,8 @@ function List() {
         throw new Error("Connection error");
       }
       const data = await response.json();
-      setPosts(data);
+      const filteredData = data.filter((blog) => blog.published === true);
+      setPosts(filteredData);
       setLoading(false);
     } catch (err) {
       console.error(err);
