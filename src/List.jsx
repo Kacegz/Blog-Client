@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
+import LoadingComponent from "./Loading";
 function List() {
   const [posts, setPosts] = useState();
   const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ function List() {
     <>
       <PostList>
         {loading ? (
-          <p>Loading...</p>
+          <LoadingComponent />
         ) : (
           posts.map((post) => {
             return (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import LoadingComponent from "./Loading";
 export default function Post() {
   const postId = useParams();
   const [user, setUser] = useState();
@@ -57,7 +58,7 @@ export default function Post() {
   return (
     <>
       {loading ? (
-        <h1>Loading</h1>
+        <LoadingComponent />
       ) : (
         <>
           <PostSection>
