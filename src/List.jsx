@@ -90,7 +90,6 @@ const PostText = styled.p`
   font-size: 1rem;
   margin: 10px;
   word-wrap: break-word;
-  width: 20vw;
   min-height: 100px;
   overflow: hidden;
   display: -webkit-box;
