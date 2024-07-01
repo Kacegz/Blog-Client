@@ -116,7 +116,7 @@ const PostSection = styled.section`
   padding: 20px;
   margin: 20px;
   width: 40%;
-  height: 60vh;
+  min-height: 60vh;
   border: 1px solid #e3caa5;
   border-radius: 20px;
   gap: 5px;
