@@ -146,10 +146,6 @@ const PostText = styled.p`
   font-size: 1rem;
   margin: 10px;
   word-wrap: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
-  -webkit-box-orient: vertical;
 `;
 const CommentSection = styled.section`
   display: flex;
